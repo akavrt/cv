@@ -41,7 +41,4 @@ Icon
 *.vrb
 *.xdy
 *.tdo
-*.pdf
-
-#Placeholders
-#/img
+*.lb

@@ -1,0 +1,123 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{green}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+
+
+% adjust the page margins
+\usepackage[scale=0.85]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Victor}{Balabanov}
+\title{Android developer}
+\address{Kyiv, Ukraine}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+\phone[mobile]{+38~091~924~21~16}                   % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+\email{akavrt@gmail.com}                               % optional, remove / comment the line if not wanted
+\social[github]{akavrt}                              % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+\makecvtitle
+
+
+\section{Experience}
+
+\cventry
+    {June 2014 -- Present}
+    {Android developer}
+    {X2SY}
+    {Kyiv}{Ukraine}
+    {Building Android app for a industry-leading local OTT service.\newline}
+
+\cventry
+    {Feb. 2013 -- May 2014}
+    {Android developer}
+    {Freelance}
+    {}{}
+    {Helping people from all over the world to transform their ideas into 
+    responsive user-centric Android apps with pixel-perfect user interface and 
+    carefully built tech underwear.\newline}
+
+\cventry
+    {Oct. 2011 -- Jan. 2013}
+    {Android developer}
+    {MLSDev}
+    {Donetsk}{Ukraine}
+    {Working on an number of great Android apps including aeronautical mobile 
+    suite~--- a challenging GIS project with core logic built around SpatiaLite 
+    extension of SQLite, carefully implemented support for both GeoJSON and 
+    Shapefile geospatial vector data formats, custom map rendering based on SLD 
+    styling and advanced viewer for SVG documents.\newline}
+
+\cventry
+    {Feb. 2006 -- Jan. 2007}
+    {Software developer}
+    {VUSO}
+    {Donetsk}{Ukraine}
+    {I participated in development of IT system that was intended to automate 
+    business process in an insurance company. Specifically I worked on a 
+    `Clients' and `Financial' modules of the system.}
+
+\medskip
+\section{Education}
+
+\cventry
+    {2007--2010}
+    {PhD in Information Technology}
+    {Donetsk National Technical University}
+    {}
+    {\newline\textit{Not complete}}
+    {My research was concerned with solving complex combinatorial problems that
+    arises in the area of manufacturing resource planning. In addition to the
+    theoretical research a solver for one special one-dimensional cutting stock
+    problem was implemented and released as an open-source library written in
+    Java. Hybrid genetic algorithm was used to discover cutting patterns with
+    low trim loss and schedule production in the right order.\newline}
+    
+\cventry
+    {2001--2006}
+    {MS in Computer Science}
+    {Donetsk National Technical University}
+    {}
+    {\newline\textit{Diploma with distinction}}
+    {Experimenting with evolutionary computation algorithms in the area of the
+    prediction systems.}
+
+\medskip
+\section{Languages}
+\cvitemwithcomment{English}{Intermediate}{}
+\cvitemwithcomment{Ukrainian}{Native}{}
+\cvitemwithcomment{Russian}{Native}{}
+
+
+\end{document}
+
+
+%% end of file `template.tex'.
