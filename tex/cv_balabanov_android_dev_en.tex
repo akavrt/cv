@@ -6,7 +6,6 @@
 \moderncvcolor{green}
 
 \renewcommand*{\mobilephonesymbol}{\fixedphonesymbol}
-% \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
 
 % personal data
 \name{Victor}{Balabanov}
@@ -108,13 +107,10 @@
     {}{Computational intelligence, Formula One, football, hiking.}
 
 
-\makeatletter
-\def\@biblabel#1\hfill{[#1]}
-\makeatother
-
 \medskip
 \nocite{*}
-\bibliographystyle{unsrtdin}
+\renewcommand{\bibliographyitemlabel}{[\arabic{enumiv}]}
+\bibliographystyle{unsrt}
 \bibliography{bibliography_en}
 % \cvline
     % {}{\textit{All publications available only in russian.}}
