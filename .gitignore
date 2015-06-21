@@ -42,3 +42,10 @@ Icon
 *.xdy
 *.tdo
 *.lb
+
+# embedded content
+bibliography_en.bib
+moderncvcolorindigo.sty
+
+# raw edits
+raw.txt

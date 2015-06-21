@@ -1,11 +1,108 @@
+\RequirePackage{filecontents}
+\begin{filecontents*}{moderncvcolorindigo.sty}
+%% start of file `moderncvcolorburgundy.sty'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+%-------------------------------------------------------------------------------
+%                identification
+%-------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{moderncvcolorindigo}[2013/02/09 v1.3.0 modern curriculum vitae and letter color scheme: burgundy]
+
+%-------------------------------------------------------------------------------
+%                color scheme definition
+%-------------------------------------------------------------------------------
+\definecolor{color0}{rgb}{0,0,0} % black
+\definecolor{color1}{HTML}{3F51B5} % indigo_500 from color palette provided in material design guidelines
+\definecolor{color2}{rgb}{0.45,0.45,0.45} % dark grey
+\endinput
+%% end of file `moderncvcolorburgundy.sty'.
+\end{filecontents*}
+
+\begin{filecontents}{bibliography_en.bib}
+@article{skobtsov08a,
+	Author = {Skobtsov, Y. A. and Balabanov, V. N.},
+	Journal = {Herald of Khmelnytskyi national university; Series: ``Technical sciences''},
+	Number = {4},
+	Pages = {205--217},
+	Title = {A review of the application of meta\-/heuristic algorithms to the cutting stock and packing problems},
+	Volume = {1},
+	Year = {2008}}
+
+@article{balabanov09a,
+	Author = {Balabanov, V. N. and Skobtsov, Y. A. and Fonotov, A. M.},
+	Journal = {Scientific Papers of Donetsk National Technical University; Series: ``Computers and automation''},
+	Number = {148},
+	Pages = {119--126},
+	Title = {Dataware issues in cutting stock and packing problems},
+	Volume = {17},
+	Year = {2009}}
+
+@article{balabanov09b,
+	Author = {Balabanov, V. N.},
+	Journal = {The problems of information technologies},
+	Number = {2},
+	Title = {Solving roll trim problem with multiple objectives},
+	Volume = {6},
+	Year = {2009}}
+
+@article{balabanov10a,
+	Author = {Balabanov, V. N. and Skobtsov, Y. A.},
+	Journal = {Herald of the DSEA},
+	Number = {1},
+	Pages = {7--12},
+	Title = {Trim-loss optimization for coil slitting problem},
+	Volume = {18},
+	Year = {2010}}
+
+@article{balabanov10b,
+	Author = {Balabanov, V. N.},
+	Journal = {Herald of the National Technical University ``KhPI''; Subject issue: ``Information Science and Modelling''},
+	Number = {31},
+	Pages = {4--9},
+	Title = {Evolutionary approach for roll trim planning in production of electric\-/welded pipes},
+	Volume = {15},
+	Year = {2010}}
+
+@article{balabanov14,
+	Author = {Balabanov, V. N. and Skobtsov, Y. A.},
+	Journal = {Izvestiya SFedU. Engineering sciences},
+	Month = {1},
+	Number = {150},
+	Pages = {44--55},
+	Title = {An evolutionary algorithm for optimization of roll cutting},
+	Year = {2014}}
+\end{filecontents}
+
+
 \documentclass[11pt,a4paper,roman]{moderncv}
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.8]{geometry}
+\usepackage[scale=0.82]{geometry}
+\usepackage[shortcuts]{extdash}
+\usepackage{etoolbox}
+
+\usepackage[unicode]{hyperref}
+\definecolor{linkcolor}{HTML}{303F9F} % indigo_700 from color palette provided in material design guidelines
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolor, linkcolor=linkcolor}
 
 \moderncvstyle{classic}
-\moderncvcolor{green}
+\moderncvcolor{indigo}
 
 \renewcommand*{\mobilephonesymbol}{\fixedphonesymbol}
+\apptocmd
+    {\bibliographyhead}
+    {\cvline
+        {}
+        {\textit{All publications are available only in Russian.}\smallskip}
+    }
+    {}{}
+    
+\providetoggle{is_nda_compliant}
+\settoggle{is_nda_compliant}{false}
 
 % personal data
 \name{Victor}{Balabanov}
@@ -14,7 +111,6 @@
 \phone[mobile]{+38~(091)~924~2116}
 \email{akavrt@gmail.com}
 \social[github]{akavrt}
-
 
 \begin{document}
 
@@ -29,17 +125,57 @@
 
 
 \medskip
-\section{Experience}
+\section{Technical skills}
+\cvitem
+    {Languages}
+    {Java, C}
+\cvitem
+    {Frameworks}
+    {Core Android application framework components (with SDK platforms corresponding to Android 
+    versions starting from 2.3 and onwards), 
+    location and sensor APIs, MediaPlayer, ExoPlayer, Google Cast Android SDK, 
+    Android TV with Leanback Support Library templates, SQLite (including 
+    SpatiaLite and SQLCipher extensions).}
+\cvitem
+    {Libraries}
+    {Android Support Library package, Google Play Services, suite of libraries 
+    maintained by Square including OkHttp, Retrofit, Picasso and Otto.}
+\cvitem
+    {Testing}
+    {JUnit, Espresso.}
+\cvitem
+    {Tools}
+    {Android Studio, Eclipse with ADT plugin, Gradle, Maven, Jenkins CI, 
+    Fabric.}
+\cvitem
+    {VCS}
+    {Git, Mercurial.}
+\cvitem
+    {Productivity}
+    {JIRA, Redmine, Trello.}
+    
+
+\medskip
+\section{Work experience}
 
 \cventry
-    {June 2014 -- Present}
+    {June 2014 --\\Present}
     {Android developer}
-    {X2SY}
+    {\href{http://x2sy.com/}{X2SY}}
     {Kyiv}{Ukraine}
-    {Building Android app for a local industry-leading OTT service.\newline}
+    {
+        Building Android app with advanced media playback features for
+        \iftoggle{is_nda_compliant}{}{\href{http://megogo.net/}{MEGOGO.NET}~---}
+        an industry-leading local OTT service.
+        Working on the implementation of the proprietary VAST-compliant 
+        video player which supports HLS adaptive playbacks through the 
+        use of the Google's recent ExoPlayer library as well as more 
+        traditional MediaPlayer API in conjunction with SolBox and 
+        Vitamio third-party SDKs.\newline
+    }
 
 \cventry
-    {Feb. 2013 -- May 2014}
+    {Feb. 2013 --\\May 2014}
     {Android developer}
     {Freelance}
     {}{}
@@ -47,24 +183,24 @@
     production-ready Android apps.\newline}
 
 \cventry
-    {Oct. 2011 -- Jan. 2013}
+    {Oct. 2011 --\\Jan. 2013}
     {Android developer}
-    {MLSDev}
+    {\href{http://mlsdev.com/}{MLSDev}}
     {Donetsk}{Ukraine}
-    {Working on an number of great Android apps including aeronautical mobile 
+    {Working on a number of great Android apps including aeronautical mobile 
     suite~--- a challenging GIS project with core logic built around SpatiaLite 
     extension of SQLite, carefully implemented support for both GeoJSON and 
     Shapefile geospatial vector data formats, custom map rendering based on SLD 
     styling and advanced viewer for SVG documents.\newline}
 
 \cventry
-    {Feb. 2006 -- Jan. 2007}
+    {Feb. 2006 --\\Jan. 2007}
     {Software developer}
-    {VUSO}
+    {\href{http://vuso.ua/}{VUSO}}
     {Donetsk}{Ukraine}
-    {I participated in development of IT system that was intended to automate 
-    business process in an insurance company. Specifically I worked on a 
-    `Clients' and `Financial' modules of the system.}
+    {Participating in the development of IT system that was intended to 
+    automate business process in an insurance company. Specifically I worked on 
+    a `Clients' and `Financial' modules of the system.}
 
 
 \medskip
@@ -76,7 +212,7 @@
     {Donetsk National Technical University}
     {}
     {\newline\textit{Not complete}}
-    {My research was concerned with solving complex combinatorial problems that
+    {My research was concerned with solving complex combinatorial problem that
     arises in the area of manufacturing resource planning. In addition to the
     theoretical research a solver for one special one-dimensional cutting stock
     problem was implemented and released as an open-source library written in
@@ -94,10 +230,18 @@
 
 
 \medskip
+\nocite{*}
+\renewcommand{\bibliographyitemlabel}{[\arabic{enumiv}]}
+\bibliographystyle{unsrt}
+\begin{flushleft}
+\bibliography{bibliography_en}
+\end{flushleft}
+
+
+\medskip
 \section{Languages}
-\cvitemwithcomment{English}{Intermediate}{}
-\cvitemwithcomment{Ukrainian}{Native}{}
-\cvitemwithcomment{Russian}{Native}{}
+\cvitem{Native}{Russian, Ukrainian}
+\cvitem{Intermediate}{English}
 
 
 \medskip
@@ -105,15 +249,6 @@
 
 \cvline
     {}{Computational intelligence, Formula One, football, hiking.}
-
-
-\medskip
-\nocite{*}
-\renewcommand{\bibliographyitemlabel}{[\arabic{enumiv}]}
-\bibliographystyle{unsrt}
-\bibliography{bibliography_en}
-% \cvline
-    % {}{\textit{All publications available only in russian.}}
 
 
 \end{document}
