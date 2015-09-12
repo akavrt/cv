@@ -84,6 +84,8 @@
 \usepackage[scale=0.82]{geometry}
 \usepackage[shortcuts]{extdash}
 \usepackage{etoolbox}
+\usepackage[autostyle]{csquotes}
+\usepackage[symbol,norule,hang,flushmargin]{footmisc}
 
 \usepackage[unicode]{hyperref}
 \definecolor{linkcolor}{HTML}{303F9F} % indigo_700 from color palette provided in material design guidelines
@@ -91,6 +93,15 @@
 
 \moderncvstyle{classic}
 \moderncvcolor{indigo}
+
+\makeatletter
+\renewcommand*{\quotefont}{\normalfont}
+\renewcommand*{\quotestyle}[1]{{\quotefont\textcolor{color2}{#1}}}
+\makeatother
+
+\makeatletter
+\renewcommand\@makefnmark{\hbox{\@textsuperscript{\normalfont\color{color2}\@thefnmark}}}
+\makeatother
 
 \renewcommand*{\mobilephonesymbol}{\fixedphonesymbol}
 \apptocmd
@@ -111,6 +122,7 @@
 \phone[mobile]{+38~(091)~924~2116}
 \email{akavrt@gmail.com}
 \social[github]{akavrt}
+\quote{\enquote{Life is too short to run boring applications}}
 
 \begin{document}
 
@@ -257,5 +269,9 @@
 \cvline
     {}{Computational intelligence, Formula One, football, hiking.}
 
+\setcounter{footnote}{1}
+\vfill
+\enlargethispage{\footskip}
+\footnotetext{\textcolor{color2}{Opening quote belongs to Chet Haase.}}
 
 \end{document}
