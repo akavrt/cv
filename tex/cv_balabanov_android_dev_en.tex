@@ -1,12 +1,6 @@
 \RequirePackage{filecontents}
 \begin{filecontents*}{moderncvcolorindigo.sty}
-%% start of file `moderncvcolorburgundy.sty'.
-%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
-
+%% start of file `moderncvcolorindigo.sty'.
 %-------------------------------------------------------------------------------
 %                identification
 %-------------------------------------------------------------------------------
@@ -17,10 +11,10 @@
 %                color scheme definition
 %-------------------------------------------------------------------------------
 \definecolor{color0}{rgb}{0,0,0} % black
-\definecolor{color1}{HTML}{3F51B5} % indigo_500 from color palette provided in material design guidelines
+\definecolor{color1}{HTML}{0041CA} % indigo
 \definecolor{color2}{rgb}{0.45,0.45,0.45} % dark grey
 \endinput
-%% end of file `moderncvcolorburgundy.sty'.
+%% end of file `moderncvcolorindigo.sty'.
 \end{filecontents*}
 
 \begin{filecontents}{bibliography_en.bib}
@@ -87,12 +81,18 @@
 \usepackage[autostyle]{csquotes}
 \usepackage[symbol,norule,hang,flushmargin]{footmisc}
 
-\usepackage[unicode]{hyperref}
-\definecolor{linkcolor}{HTML}{303F9F} % indigo_700 from color palette provided in material design guidelines
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolor, linkcolor=linkcolor}
-
 \moderncvstyle{classic}
 \moderncvcolor{indigo}
+
+\renewcommand*{\cventry}[7][.25em]{%    
+    \cvitem[#1]{#2}{\raggedright%     
+	    {\bfseries#3}%     
+		\ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+		\ifthenelse{\equal{#5}{}}{}{, #5}%    
+		\ifthenelse{\equal{#6}{}}{}{, #6}%     
+		.\strut%     
+		\ifx&#7&%       
+		    \else{\newline\begin{minipage}[t]{\linewidth}\small\raggedright #7\end{minipage}}\fi}}
 
 \makeatletter
 \renewcommand*{\quotefont}{\normalfont}
@@ -112,14 +112,11 @@
     }
     {}{}
     
-\providetoggle{is_nda_compliant}
-\settoggle{is_nda_compliant}{false}
-
 % personal data
 \name{Victor}{Balabanov}
-\title{Android developer}
+\title{Android Engineer}
 \address{Kyiv, Ukraine}
-\phone[mobile]{+38~(091)~924~2116}
+\phone[mobile]{+38~(095)~353~1431}
 \email{akavrt@gmail.com}
 \social[github]{akavrt}
 \quote{\enquote{Life is too short to run boring applications}}
@@ -131,34 +128,27 @@
 \section{Brief description}
 \cvline
     {}
-    {I'm experienced Android developer with strong Java background. My primary 
-    interest lies in development of responsive user-centric mobile applications 
-    with pixel-perfect user interface and carefully built tech underwear.}
+    {\begin{minipage}[t]{\linewidth}\raggedright
+	I'm experienced Android engineer with strong Java background. My primary 
+    interest lies in the development of responsive user-centric mobile 
+	applications with pixel-perfect user interface and carefully built tech 
+	underwear.\end{minipage}}
 
 
 \medskip
 \section{Technical skills}
 \cvitem
     {Languages}
-    {Java, C}
+    {Java, Kotlin.}
 \cvitem
-    {Frameworks}
-    {Core Android application framework components (with SDK platforms 
-    corresponding to Android versions from 2.3 and above), location and 
-	sensor APIs, MediaPlayer, ExoPlayer, Google Cast Android SDK, 
-	Android TV with Leanback Support Library templates, 
-	SQLite (including SpatiaLite and SQLCipher extensions).}
+    {Platforms}
+    {Android Mobile, Android TV, Android Auto.}
 \cvitem
-    {Libraries}
-    {Android Support Library package, Google Play Services, suite of libraries 
-    maintained by Square including OkHttp, Retrofit, Picasso and Otto.}
-\cvitem
-    {Testing}
-    {JUnit, Espresso.}
+    {Tech stack}
+    {MVP/MVI/MVVM app architecture + Android Jetpack, RxJava, ExoPlayer.}
 \cvitem
     {Tools}
-    {Android Studio, Eclipse with ADT plugin, Gradle, Maven, Jenkins CI, 
-    Fabric.}
+    {Android Studio, Gradle, GitLab, Jenkins, Kibana.}
 \cvitem
     {VCS}
     {Git, Mercurial.}
@@ -171,31 +161,29 @@
 \section{Work experience}
 
 \cventry
-    {June 2014 --\\Present}
-    {Senior Android developer}
-    {\href{http://x2sy.com/}{X2SY}}
+    {Jan. 2018 --\\Present}
+    {Tech Lead}
+    {\href{https://megogo.net/}{MEGOGO}}
     {Kyiv}{Ukraine}
-    {
-        \iftoggle{is_nda_compliant}
-            {
-                Building Android app with advanced media playback features for
-                an industry-leading local OTT service.\newline
-            }
-            {
-                Building a set of mobile and TV user-friendly Android apps with 
-				advanced media playback features for 
-				\href{http://megogo.net/}{MEGOGO.NET}~--- an industry-leading 
-                local OTT service.
-                Working on the implementation of the proprietary VAST-compliant 
-				media player which supports video content protected with 
-				Widevine Classic DRM, HLS and MPEG-DASH adaptive playbacks, as 
-				well as different types of video ads.\newline
-            }
-    }
+    {Guiding system design of the company's mobile product and co-managing 
+	technical aspects of the software development process in a team of 5+ 
+	engineers. Working on internal projects with a focus on app performance 
+	and stability improvements.\newline}
+
+\cventry
+    {June 2014 --\\Dec. 2017}
+    {Senior Android Engineer}
+    {\href{https://megogo.net/}{MEGOGO}}
+    {Kyiv}{Ukraine}
+    {Building a set of mobile and TV user-friendly Android apps with advanced 
+	media playback features for a local industry-leading OTT service.
+    Contributing to an overall app architecture design as well as working on 
+	an implementation of an application level media player built on top of 
+	ExoPlayer.\newline}
 
 \cventry
     {Feb. 2013 --\\May 2014}
-    {Android developer}
+    {Android Engineer}
     {Freelance}
     {}{}
     {Helping people from all over the world to transform their ideas into 
@@ -203,19 +191,19 @@
 
 \cventry
     {Oct. 2011 --\\Jan. 2013}
-    {Android developer}
-    {\href{http://mlsdev.com/}{MLSDev}}
+    {Android Engineer}
+    {\href{https://mlsdev.com/}{MLSDev}}
     {Donetsk}{Ukraine}
     {Working on a number of great Android apps including aeronautical mobile 
-    suite~--- a challenging GIS project with core logic built around SpatiaLite 
+    suite~--- a~challenging GIS project with core logic built around SpatiaLite 
     extension of SQLite, carefully implemented support for both GeoJSON and 
     Shapefile geospatial vector data formats, custom map rendering based on SLD 
     styling and advanced viewer for SVG documents.\newline}
 
 \cventry
     {Feb. 2006 --\\Jan. 2007}
-    {Software developer}
-    {\href{http://vuso.ua/}{VUSO}}
+    {Software Engineer}
+    {\href{https://vuso.ua/}{VUSO}}
     {Donetsk}{Ukraine}
     {Participating in the development of IT system that was intended to 
     automate business process in an insurance company. Specifically I worked on 
@@ -226,7 +214,7 @@
 \section{Education}
 
 \cventry
-    {2007--2010}
+    {2007--2011}
     {PhD in Information Technology}
     {Donetsk National Technical University}
     {}
@@ -244,8 +232,8 @@
     {Donetsk National Technical University}
     {}
     {\newline\textit{Diploma with distinction}}
-    {Experimenting with evolutionary computation algorithms in the area of the
-    prediction systems.}
+    {Experimenting with evolutionary computation algorithms applied to the 
+	field of medical prediction problems.}
 
 
 \medskip
@@ -267,7 +255,7 @@
 \section{Interests}
 
 \cvline
-    {}{Computational intelligence, Formula One, football, hiking.}
+    {}{Modernist architecture, classic cars, motosport, football, hiking.}
 
 \setcounter{footnote}{1}
 \vfill
